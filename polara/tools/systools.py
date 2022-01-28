@@ -42,7 +42,7 @@ def platform_free_memory():
         mem = memory_status.free / (1024**3) # return in gigabytes
     else:
         memory_status = os.popen("free -m").readlines()
-        if memory_status[0].split()[2].lower() == 'free':
+        if memory_status[0].split()[2].lower() in ['free','livre']:
             mem = int(memory_status[1].split()[3]) / 1024 # return in gigabytes
         else:
             raise ValueError('Unrecognized memory info')
